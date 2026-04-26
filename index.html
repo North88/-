@@ -5,41 +5,67 @@
 <meta charset="UTF-8">
 <title>For น้องมุก 💕</title>
 
+<!-- ฟอนต์น่ารัก -->
+
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin:0;
-    font-family:Arial;
+    font-family:'Mali', cursive;
+    font-size:20px;
+    line-height:1.6;
     text-align:center;
-    background: linear-gradient(#ff9a9e,#fad0c4);
+    background: linear-gradient(#ffb6c1,#ffe4e1);
     color:white;
     overflow-x:hidden;
 }
 
-/* ทุกหน้า */
+/* หน้า */
 .page {
     display:none;
     height:100vh;
     padding-top:120px;
 }
-
-/* หน้าแรก */
 #page1 { display:block; }
 
+/* ตัวหนังสือ */
+h1 {
+    font-size:38px;
+    font-weight:600;
+}
+h2 {
+    font-size:24px;
+}
+
+/* ปุ่ม */
 button {
     padding:15px 25px;
     font-size:18px;
     border:none;
-    border-radius:20px;
+    border-radius:25px;
     margin:10px;
     cursor:pointer;
+    transition:0.3s;
 }
 
-#yes { background:#ff4d6d; }
-#no { background:#555; }
+#yes {
+    background:#ff4d6d;
+    color:white;
+}
+#yes:hover {
+    transform:scale(1.1);
+}
 
+#no {
+    background:#888;
+    color:white;
+}
+
+/* ข้อความเตือน */
 #msg {
     margin-top:20px;
-    color:yellow;
+    color:#fff8a6;
 }
 
 /* หัวใจ */
@@ -47,6 +73,7 @@ button {
     position:fixed;
     top:-10px;
     animation:fall linear infinite;
+    font-size:20px;
 }
 
 @keyframes fall {
@@ -61,7 +88,7 @@ button {
 <!-- หน้า 1 -->
 
 <div id="page1" class="page">
-    <h1>รักเค้ามั้ย 💕</h1>
+    <h1>รักเค้ามั้ย 🥺</h1>
 
 ```
 <button id="yes" onclick="goLove()">รัก 💖</button>
@@ -75,7 +102,7 @@ button {
 <!-- หน้า 2 -->
 
 <div id="page2" class="page">
-    <h1>เค้ารักมุกมากนะ 💕</h1>
+    <h1>เค้ารักน้องมุกมากกกน้าาา 💕</h1>
     <h2 id="day"></h2>
 
 ```
@@ -87,7 +114,7 @@ button {
 <!-- หน้า 3 -->
 
 <div id="page3" class="page">
-    <h1>จะอยู่กับมุกไปอีกนานเลยนะ ❤️</h1>
+    <h1>จะอยู่กับมุกไปอีกนานเย้ยยนะ ❤️</h1>
 </div>
 
 <script>
@@ -95,17 +122,18 @@ button {
 let size = 18;
 let i = 0;
 let messages = [
- "แน่ใจนะมุก 😢",
+ "แน่ใจนะที่ร้าก 😢",
  "เค้าเสียใจแล้วนะ...",
  "งอนแล้วนะ!",
- "รักเค้าเถอะ 🥺"
+ "รักเค้าเถอะ 🥺",
+ "กดรักเดี๋ยวนี้เลย 💕"
 ];
 
 function noLove(){
  let yes = document.getElementById("yes");
  let msg = document.getElementById("msg");
 
- size += 5;
+ size += 4;
  yes.style.fontSize = size + "px";
 
  msg.innerHTML = messages[i % messages.length];
@@ -118,7 +146,7 @@ function goLove(){
 }
 
 // ===== หน้า 2 =====
-// 👉 เปลี่ยนวันที่คบตรงนี้
+// 👉 แก้วันที่คบตรงนี้
 let start = new Date("2026-02-21");
 
 function update(){
