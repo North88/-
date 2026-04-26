@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>For มุก 💕</title>
+
+<style>
+body {
+    margin:0;
+    font-family:Arial;
+    text-align:center;
+    background: linear-gradient(#ff9a9e,#fad0c4);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ทุกหน้า */
+.page {
+    display:none;
+    height:100vh;
+    padding-top:120px;
+}
+
+/* หน้าแรก */
+#page1 { display:block; }
+
+button {
+    padding:15px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:20px;
+    margin:10px;
+    cursor:pointer;
+}
+
+#yes { background:#ff4d6d; }
+#no { background:#555; }
+
+#msg {
+    margin-top:20px;
+    color:yellow;
+}
+
+/* หัวใจ */
+.heart {
+    position:fixed;
+    top:-10px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh); }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- หน้า 1 -->
+
+<div id="page1" class="page">
+    <h1>รักมุกมั้ย 💕</h1>
+
+```
+<button id="yes" onclick="goLove()">รัก 💖</button>
+<button id="no" onclick="noLove()">ไม่รัก 😢</button>
+
+<p id="msg"></p>
+```
+
+</div>
+
+<!-- หน้า 2 -->
+
+<div id="page2" class="page">
+    <h1>เค้ารักมุกมากนะ 💕</h1>
+    <h2 id="day"></h2>
+
+```
+<button onclick="goFinal()">ไปต่อ 👉</button>
+```
+
+</div>
+
+<!-- หน้า 3 -->
+
+<div id="page3" class="page">
+    <h1>จะอยู่กับมุกไปอีกนานเลยนะ ❤️</h1>
+</div>
+
+<script>
+// ===== หน้า 1 =====
+let size = 18;
+let i = 0;
+let messages = [
+ "แน่ใจนะมุก 😢",
+ "เค้าเสียใจแล้วนะ...",
+ "งอนแล้วนะ!",
+ "รักเค้าเถอะ 🥺"
+];
+
+function noLove(){
+ let yes = document.getElementById("yes");
+ let msg = document.getElementById("msg");
+
+ size += 5;
+ yes.style.fontSize = size + "px";
+
+ msg.innerHTML = messages[i % messages.length];
+ i++;
+}
+
+function goLove(){
+ document.getElementById("page1").style.display="none";
+ document.getElementById("page2").style.display="block";
+}
+
+// ===== หน้า 2 =====
+// 👉 เปลี่ยนวันที่คบตรงนี้
+let start = new Date("2026-02-21");
+
+function update(){
+ let now = new Date();
+ let diff = now - start;
+ let days = Math.floor(diff / (1000*60*60*24));
+ document.getElementById("day").innerHTML =
+ "เราคบกันมาแล้ว " + days + " วัน 💖";
+}
+update();
+
+function goFinal(){
+ document.getElementById("page2").style.display="none";
+ document.getElementById("page3").style.display="block";
+ createHearts();
+}
+
+// ===== หน้า 3 =====
+function createHearts(){
+ for(let i=0;i<30;i++){
+  let h=document.createElement("div");
+  h.innerHTML="💗";
+  h.className="heart";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(Math.random()*3+2)+"s";
+  document.body.appendChild(h);
+
+  setTimeout(()=>h.remove(),5000);
+ }
+}
+</script>
+
+</body>
+</html>
